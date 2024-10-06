@@ -1,58 +1,83 @@
-<!DOCTYPE HTML>
 <html>
 <head>
-    <title>Magazin Sportiv</title>
-    <link href="meniu.css" rel="stylesheet" type="text/css">
+<title>FarmaVet</title>
+<link href="farma_vet_meniu.css" rel="stylesheet" type="text/css">
+<style>
+body {
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat, repeat;
+  background-size: auto;
+  background-color: white;
+  position: relative;
+  }
+</style>
 </head>
+
 <body>
 
 <ul id="menu">
+   <li><a href="user_meniu.php">Acasa</a></li>
+   <li><a href="#">Caini</a>
+   <ul>
+      <li><a href="c_hrana_umeda.php">Hrana umeda</a></li>
+      <li><a href="c_hrana_uscata.php">Hrana uscata</a></li>
+      <li><a href="c_recompense.php">Recompense</a></li>
+      <li><a href="c_jucarii.php">Jucarii pentru caini</a></li>
+   </ul>
+   </li>
+   <li><a href="#">Pisici</a>
+   <ul>
+      <li><a href="p_hrana_umeda.php">Hrana umeda</a></li>
+      <li><a href="p_hrana_uscata.php">Hrana uscata</a></li>
+      <li><a href="p_recompense.php">Recompense</a></li>
+      <li><a href="p_jucarii.php">Jucarii pentru pisici</a></li>
+   </ul>
+   </li>
 
-    <li><a href="user_meniu.php">Home</a></li>
+   <li><a href="#">Brand-uri</a>
+   <ul>
+      <li><a href="pt_caini.php">Pentru Caini</a></li>
+      <li><a href="pt_pisici.php">Pentru Pisici</a></li>
+   </ul>
+   </li>
 
+   <li><a href="#">Vaccinuri</a>
+   <ul>
+      <li><a href="c_vaccinuri.php">Vaccinuri caini</a></li>
+      <li><a href="p_vaccinuri.php">Vaccinuri pisici</a></li>
+      <li><a href="schema_vaccinare.php">Schema Vaccinare</a></li>
 
-    <li><a href="#">Recomandari de Sezon</a>
-      <ul>
-        <li><a href="sezon_primavara.php"> Sezon primavara </a></li>
-        <li><a href="sezon_vara.php"> Sezon vara </a></li>
-        <li><a href="sezon_toamna.php"> Sezon toamna </a></li>
-        <li><a href="sezon_iarna.php"> Sezon iarna </a></li>
-        <li><a href="sezon_sala.php"> In sala </a></li>
-      </ul>
-    </li>
+   </ul>
+   </li>
 
-    <li><a href="#">Tipuri de Activitati</a>
-      <ul>
-        <li><a href="drumetie.php">Drumetie</a></li>
-        <li><a href="tenis_camp.php">Tenis de Camp</a></li>
-        <li><a href="tenis_masa.php">Tenis de Masa</a></li>
-        <li><a href="fotbal.php">Fotbal</a></li>
-        <li><a href="baschet.php">Baschet</a></li>
-        <li><a href="handbal.php">Handbal</a></li>
-        <li><a href="contact.php">Sporturi de contact</a></li>
-        <li><a href="fitness.php">Fitness</a></li>
-        <li><a href="echipa.php">Sporturi de echipa</a></li>
-        <li><a href="individual.php">Individuale</a></li>
-      </ul>
-    </li>
-
-    <li><a href="despre.php">DESPRE NOI</a></li>
-    <?php
+   <li><a href="#">DESPRE</a>
+   <ul>
+      <li><a href="despre.php">Despre Site</a></li>
+      <li><a href="rase_caini.php">Rase Caini</a></li>
+      <li><a href="rase_pisici.php">Rase Pisici</a></li>
+   </ul>
+   </li>
+   <?php
       session_start();
       if (strcmp($_SESSION["user_id"],"")!=0)
       {
-        echo '<li><a href="#">User: [<strong>'.$_SESSION["user_id"].'</strong>]</a>
+        echo '<li><a href="#">Logout: <strong><font color="white">'.$_SESSION["user_id"].'</font></strong></a>
                 <ul>
-                  <li><a href="logout.php"><strong>Logout: '.$_SESSION["user_id"].'</strong></a></li>';
-        echo '    <li><a href="w_mesaje.php?de_la='.$_SESSION["user_id"].'">Scrie Mesaj</a></li>
-                  <li><a href="mesaje_necitite.php?catre='.$_SESSION["user_id"].'">Mesaje necitite</a></li>
+                  <li><a href="logout.php"><b><font color="white">Logout</font></b></a></li>
+
                   <li><a href="mesaje_inbox.php?catre='.$_SESSION["user_id"].'">Mesaje (Inbox)</a></li>
-                </ul></li>';
+                  <li><a href="mesaj_to_admin.php?de_la='.$_SESSION["user_id"].'">Send to Admin</a></li>
+                </ul>
+              </li>';
         echo '<li><a href="#">Cos_Favorite</a>
         <ul>
           <li><a href="cos.php">Cosul meu</a></li>
           <li><a href="achizitionate.php">Achizitionate</a></li>
           <li><a href="favorite.php">Favorite</a></li>
+          <li><a href="vaccinare.php">Programare Vaccin</a></li>
+          <li><a href="vaccinuri.php">Vaccinuri efectuate</a></li>
+
         </ul>
         </li>';
       }
@@ -60,8 +85,8 @@
       {
         echo '<li><a href="login.html">Login</a></li>';
       }
-
     ?>
 </ul>
+
 </body>
 </html>

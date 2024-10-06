@@ -9,7 +9,6 @@
    $subject = $_POST["subiect"];
    $message = $_POST["mesaj"];
    $header = "From:$to \r\n";
-   $header .= "MIME-Version: 1.0\r\n";
    $header .= $_POST["nume"];
    //echo $to," ",$subject;
    $retval = mail ("admin@gmail.com",$subject,$message,$header);

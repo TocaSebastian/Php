@@ -6,7 +6,7 @@
 session_start();
 if ($_SESSION["admin"] == 1)
 {
-    include 'admin_produs.php';
+    include 'admin_meniu.php';
     echo" <style>
         body {
             background-image: url();
@@ -19,6 +19,7 @@ if ($_SESSION["admin"] == 1)
 }
 else { include "user_meniu.php";}
 $trimit_date='data='.$_GET["data"].'&de_la='.$_GET["de_la"].'&subiect='.$_GET["subiect"].'&mesaj='.$_GET["mesaj"];
+//echo $trimit_date;
 ///////////////////////////////////////////////////////////////////////////////////
 if(array_key_exists('button_replay', $_POST))// Raspunde la mesaj
 {
@@ -55,9 +56,9 @@ $sql = "UPDATE mesaje SET citit=1 WHERE nr_crt=".$_GET["nr_crt"];
 $result = $conn->query($sql);
 $conn->close();
 ?>
-<br>
+<br><br>
 <form method="post">
-<table border="1" width="800" height="480">
+<table border="3" width="800" height="480">
 	<tr>
 		<td height="27" width="94" align="center">Data</td>
 		<td colspan="2" align="center"><font color="blue"><?php echo $_GET["data"];?></font></td>
@@ -67,7 +68,11 @@ $conn->close();
 		<td height="27" width="94" align="center">Catre</td>
 		<td height="27" width="640">&nbsp;<?php echo $_GET["catre"];?></td>
 		<td height="27" width="97" align="center">
-			<button type="submit" name="button_replay" value="<?php echo $trimit_date;?>"> Replay </button>
+			<button type="submit" name="button_replay" value="
+				<?php
+					$trimit_date='data='.$_GET["data"].'&de_la='.$_GET["de_la"].'&subiect='.$_GET["subiect"].'&mesaj='.$_POST["rmesaj"];
+					echo $trimit_date;
+				?>"> Replay </button>
 		</td>
 	</tr>
 	<tr>
@@ -88,8 +93,7 @@ $conn->close();
 		<td height="371" width="853" colspan="3">
 			<textarea cols="108" rows="22" name="rmesaj" ><?php	echo "mesaj=".$_GET["mesaj"];?>
 ---------------------------------------------------------------------
-Re:
-			</textarea>
+      Re: </textarea>
 		</td>
 	</tr>
 </table>

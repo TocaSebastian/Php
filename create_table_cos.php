@@ -14,7 +14,9 @@ $sql = "CREATE TABLE cos (
           id_sesiune VARCHAR(30),
           data DATE DEFAULT CURRENT_TIMESTAMP
         )";
-
+// achizitionat = 0 pentru este in cos
+//              = 1 pentru a fost achizitionat
+//              = 2 urmeaza a fi facturat
 if ($conn->query($sql) === TRUE) {
   echo "Successfully created TABLE cos";
 } else {
@@ -23,5 +25,5 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ob_clean();
-include "index.php";
+include "index.html";
 ?> 

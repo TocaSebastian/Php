@@ -10,7 +10,7 @@ $sql = "CREATE TABLE mesaje (
           subiect VARCHAR(255),
           nume VARCHAR(50) NOT NULL,
           email VARCHAR(255),
-          text VARCHAR(1000) NOT NULL,
+          text VARCHAR(3000) NOT NULL,
           data DATE DEFAULT CURRENT_TIMESTAMP,
           ora TIME DEFAULT CURRENT_TIMESTAMP,
           citit INT(1) DEFAULT 0

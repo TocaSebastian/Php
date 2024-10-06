@@ -12,7 +12,7 @@ if ($pass1 === $pass2){
  // echo "<br>$sql";
 
   if ($conn->query($sql) === TRUE) {
-    echo "<script>alert('Utilizator inregistrat');</script>";
+    echo "<br>Successfully INSERT user";
     $conn->close();
     include "login.html";
   }

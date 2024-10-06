@@ -1,11 +1,12 @@
 Baza de date a magazinului cuprinde:
 
-Tabele:  articol (nr_crt. tip_echipament, denumire_echipament, utilitate, anotimp, cantitate, brand, pret)
-                - nr_crt: numar curent INT(6)
-		- tip_echipament: tipul echipamentului (ex: racheta, adidas, sort)  TEXT(30)
-		- denumire_echipament: denumirea echipamentului( ex: racheta tenis, minge tenis)
-		- utilitate: tipul de sport pentru care este utilizat echipamentul (ex: tenis, box, etc)
-		- anotimpul: pentru care se folosesdte echipamentul
+Tabele:  articol (nr_crt, animal, denumire_articol, utilitate, cantitate, brand, pret)
+		- nr_crt: numar curent INT(6)
+		- animal: animalutul pentru care este destinat articolul (ex: caine sau pisica)  TEXT(30)
+		- denumire_articol: denumirea articolului/produsului( ex: mancare uscata, mancare umeda, jucarie, recompensa)
+		- utilitate: pentru ce este folosit produsul (ex: mancare uscata, mancare umeda, jucarie, recompensa)
 		- cantitate: numarul de bucati
 		- brand: firma producatoare
-		- pret: pretul per bucata al achipamentului
+		- pret: pretul per bucata al articolului
+		- descriere: descrierea produsului TEXT(500)
+		- cod_art: codul produsului INT(6)

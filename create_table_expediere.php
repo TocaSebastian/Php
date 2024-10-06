@@ -27,5 +27,5 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ob_clean();
-include "index.php";
+include "index.html";
 ?> 

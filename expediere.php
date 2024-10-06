@@ -20,7 +20,7 @@ $sql = "INSERT INTO expediere ( user_name , id_sesiune, nume, judet, localitate,
 
 if ($conn->query($sql) === TRUE) {
     //echo "<br>Successfully INSERT expediere";
-    echo "<br><h2>Comanda a fost lansata !<br>Aveti factura atasata !.<br><br>Multumim !</h2>";
+    echo "<br><h2>Comanda a fost plasata !<br>Factura este atasata mai jos.<br><br>Multumim !</h2>";
   }
   else {
     //echo "<br>Error INSERT: " . $conn->error;
@@ -39,12 +39,12 @@ echo "<br>----------------------------------------------------------------------
 echo "<h3>Produse achizitionate:</h3>";
 
 include 'connect.php';
-$sql = "SELECT * FROM cos,articol WHERE cos.cod_art_cos=articol.cod_art AND cos.achizitionat=2 AND user_name='$user_name' AND data='".date("Y-m-d")."'";
+$sql = "SELECT * FROM articol,cos WHERE articol.cod_art=cos.cod_art_cos AND cos.achizitionat=2 AND user_name='$user_name'";
 //echo "<br>".$sql;
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-  // output data of each row
+
   echo '<table border="1" width="738" height="99">
           <tr>
             <td height="24" width="44">Nr crt</td>
@@ -57,14 +57,14 @@ if ($result->num_rows > 0) {
       $nr_crt+=1;
       echo '<tr>';
       echo'<td height="24" width="44">'.$nr_crt.'</td>';
-      echo '<td height="24" width="460">'.$row["denumire_echipament"].'</td>';
+      echo '<td height="24" width="460">'.$row["denumire_articol"].'</td>';
       echo '<td height="24" width="212">'.$row["pret"].' Lei</td></tr>';
       $total+=$row["pret"]*$row["cantitate_cos"];
   }//while
   echo '<tr>  <td height="33" width="504" colspan="2"> <p align="right">TOTAL</td> <td height="33" width="212">'.$total.' Lei</td>  </tr> </table>';
 }//if
 $conn->close();
-
+sleep(3);
 //Dupa facturare produsul trece in cos ca fiind facurat = 1
 include 'connect.php';
   // Schimbarea atributului achizitionat din 2 in 1 (articolul a fost facturat)

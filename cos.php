@@ -33,7 +33,7 @@ if(array_key_exists('button2', $_POST))//Buton Comanda
   //echo "<h2>Coamda a fost lansata !<br>Veti primi pe email factura.<br><br>Multumim !</h2>";
   // Schimbarea atributului achizitionat din 0 in 2 (articolul nu se mai afla in cos ci a fost cumparat)
   // urmeaza intocmirea facturii (2 pt facturare, 1 a fost facuturat)
-  $sql = "UPDATE cos SET achizitionat=2 WHERE user_name='$user_name'";
+  $sql = "UPDATE cos SET achizitionat=2 WHERE user_name='$user_name' AND achizitionat=0";
   if ($conn->query($sql) === TRUE) {
           //echo "<br>Successfully UPDATE cos";
   }
@@ -78,20 +78,13 @@ if(array_key_exists('button_plus', $_POST))
         $cod_art=$_POST['button_plus'];
         //echo "Bt +";
         include 'connect.php';
-        // obtin cantitatea din depozit pt produsul la care vreau sa mai adaug
-        $sql2 = "SELECT cantitate FROM articol WHERE cod_art =$cod_art";
-        $result2 = $conn->query($sql2);
-        if ($result2->num_rows > 0) {
-            $row2 = $result2->fetch_assoc();
-            $cantitate_maxima=$row2["cantitate"];
-            //echo $cantitate_maxima;
-            $sql = "UPDATE cos SET cantitate_cos=cantitate_cos+1 WHERE user_name='$user' AND cod_art_cos=$cod_art AND cantitate_cos<$cantitate_maxima";
-            if ($conn->query($sql) === TRUE) {
-                //echo "<br>Successfully DELETE cos";
+        $sql = "UPDATE cos SET cantitate_cos=cantitate_cos+1 WHERE user_name='$user' AND cod_art_cos=$cod_art";
+        //echo "<br>".$sql;
+        if ($conn->query($sql) === TRUE) {
+          //echo "<br>Successfully DELETE cos";
+        }
+        else{//echo "<br>Error DELETE: " . $conn->error;
             }
-            else{//echo "<br>Error DELETE: " . $conn->error;
-                }
-        }//end_if ($result2->num_rows > 0)
         $conn->close();
       }//else{ echo "Nu sunteti logat!\nNu puteti adauga articole in cos!";}
 }
@@ -128,19 +121,19 @@ if ($result->num_rows > 0) {
   // output data of each row
   $total_plata=0;
   while($row = $result->fetch_assoc()) {
-    echo '<center>
+    echo '<br><p align="center">
               <table border="1">
-                  <td colspan="3" width="399">Denumire articol:  <font color="blue">' . $row["denumire_echipament"]. '</font></td>
+                  <tr><td colspan="3">Denumire articol:' . $row["denumire_articol"]. '</td></tr>
                   <tr>
                     <td rowspan="6"><center><img src="data:image/jpeg;base64,'.base64_encode($row['image_data']).'"width="180" height="180" ></center></td>
                     <td colspan="3">cod produs:' . $row["cod_art"]. '</td>
                   </tr>
 
-                  <tr><td colspan="3">Tip sport: ' . $row["tip_echipament"].  ' </td></tr>
+                  <tr><td colspan="3">Animalut: ' . $row["tip_animal"].  ' </td></tr>
                   <tr><td colspan="3">Utilitate: ' . $row["utilitate"]. ' </td></tr>
                   <tr><td colspan="3">Producator: ' . $row["brand"]. ' </td></tr>
                   <tr><td colspan="3">Cantitate: ' . $row["cantitate"]. ' </td></tr>
-                  <tr><td colspan="3">Pret: ' . $row["pret"]. ' </td></tr>
+                  <tr><td colspan="3">Pret: ' . $row["pret"]. ' Lei</td></tr>
                   <tr><td height="100" width="450" colspan="3">'.$row["descriere"].'</td></tr>
                   <tr>
                     <td width="274">
@@ -152,18 +145,18 @@ if ($result->num_rows > 0) {
                     <td width="56">
                     <form method="post">
                     <center>
-                      <button type="submit" name="button_minus" value="'.$row["cod_art"].'"> - </button>
                       <button type="submit" name="button_plus" value="'.$row["cod_art"].'"> + </button>
+                      <button type="submit" name="button_minus" value="'.$row["cod_art"].'"> - </button>
                     </center>
                     </form>
                     </td>
                   </tr>
                </table>
-               </center><br>';
+               </p>';
     $total_plata+=$row["pret"] * $row["cantitate_cos"];
 
   }//while
-  echo "<center><h1>Total de plata: ",$total_plata," Lei</h1></center>";
+  echo "<center><h1>Total de plata: ", $total_plata, " Lei</h1></center>";
   echo '<form method="post">
           <p align="center">
             <button type="submit" name="button2" value="'.$row["cod_art"].'"> Comanda</button>

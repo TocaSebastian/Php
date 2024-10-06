@@ -7,10 +7,9 @@ echo "<br>Creare Tabela ARTICOL: ";
 
 $sql = "CREATE TABLE articol (
           nr_crt INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-          tip_echipament VARCHAR(30) NOT NULL,
-          denumire_echipament VARCHAR(30) NOT NULL,
+          tip_animal VARCHAR(30) NOT NULL,
+          denumire_articol VARCHAR(30) NOT NULL,
           utilitate VARCHAR(30) NOT NULL,
-          anotimp VARCHAR(30) NOT NULL,
           cantitate INT(6),
           brand  VARCHAR(30) NOT NULL,
           pret INT(6),

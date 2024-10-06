@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "user";
 $password = "user";
-$database = "myDB";
+$database = "farma_vet_DB";
 // Create connection        mysqli(host, username, password, dbname, port, socket)
 $conn = new mysqli($servername, $username, $password, $database);
 // Check connection

@@ -1,68 +1,48 @@
 <html>
 <head>
+    <title>FarmaVet</title>
 </head>
 
 <body>
-<br>
 <center><h1>Introducere articol nou</h1></center>
 <form action="insert_art.php" enctype="multipart/form-data" method="POST">
-    <label for="cod_art">Cod articol: </label>
+    <label for="cod_art">Cod articol (max 6 cifre): </label>
       <input type="text" name="cod_art" value="">
     <br><br>
-    <label for="tip_echipament">Tip_echipament:</label>
-      <input type="radio" name="tip_echipament" id="fitness" value="fitness">
-      <label for="fitness">Fitness</label>
-      <input type="radio" name="tip_echipament" id="echipa" value="echipa">
-      <label for="echipa">De echipa</label>
-      <input type="radio" name="tip_echipament" id="individual" value="individual">
-      <label for="individual">Individual</label>
-      <input type="radio" name="tip_echipament" id="contact" value="contact">
-      <label for="contact">De contact</label>
+    <label for="tip_animal">Animalutul:</label>
+      <input type="radio" name="tip_animal" id="caine" value="caine">
+      <label for="caine">Caine</label>
+      <input type="radio" name="tip_animal" id="pisica" value="pisica">
+      <label for="pisica">Pisica</label>
+      <input type="radio" name="tip_animal" id="animale mici" value="animale mici">
+      <label for="animale mici">Animale mici</label>
     <br><br>
 
-  <label for="denumire_echipament">Denumire echipament: </label>
-  <input type="text" name="denumire_echipament" value="">
+  <label for="denumire_articol">Denumire produs (max 30 caractere): </label>
+  <input type="text" name="denumire_articol" value="">
   <br><br>
 
-  <label for="utilitate">Tip de sport: </label>
+  <label for="utilitate">Utilizare: </label>
     <select name="utilitate" id="utilitate">
         <option>Alege o optiune</option>
-        <option value="baschet">Baschet</option>
-        <option value="fotbal">Fotbal</option>
-        <option value="handbal">Handbal</option>
-        <option value="tenis de camp">Tenis de camp</option>
-        <option value="tenis de masa">Tenis de masa</option>
-        <option value="contact">Sporturi de contact</option>
-        <option value="drumetie">Drumetie</option>
-        <option value="patinaj">Patinaj</option>
-        <option value="ski">Ski</option>
-        <option value="fitness">Fitness</option>
+        <option value="uscata">Mancare uscata</option>
+        <option value="umeda">Mancare umeda</option>
+        <option value="jucarie">Jucarie</option>
+        <option value="recompensa">Recompensa</option>
+        <option value="vaccin">Vaccin</option>
     </select>
-  <br><br>
-
-  <label for="anotimp">Anotimp:</label>
-    <input type="radio" name="anotimp" id="primavara" value="primavara">
-    <label for="primavara">Primavara</label>
-    <input type="radio" name="anotimp" id="vara" value="vara">
-    <label for="vara">Vara</label>
-    <input type="radio" name="anotimp" id="toamna" value="toamna">
-    <label for="toamna">Toamna</label>
-    <input type="radio" name="anotimp" id="iarna" value="iarna">
-    <label for="iarna">Iarna</label>
-    <input type="radio" name="anotimp" id="sala" value="sala">
-    <label for="sala">Sala</label>
   <br><br>
 
   <label for="cantitate">Cantitate:</label>
     <input type="text" name="cantitate" value="">
   <br><br>
-  <label for="brand">Brand:</label>
+  <label for="brand">Brand (max 30 caractere):</label>
     <input type="text" name="brand" value="">
   <br><br>
   <label for="pret">Pret:</label>
     <input type="text" name="pret" value="">
   <br><br>
-  <label for="descriere">Descriere:</label><br>
+  <label for="descriere">Descriere (max 500 caractere):</label><br>
     <textarea name="descriere" id="descriere" cols="60" rows="6"></textarea>
   <br><br>
   <label for="file">Imagine articol:</label>
@@ -74,4 +54,3 @@
 </form>
 
 </body>
-</html>

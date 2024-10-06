@@ -1,8 +1,10 @@
+<!DOCTYPE HTML>
 <?php
 session_start();
+ob_clean();
 if ($_SESSION["admin"] == 1)
 {
-    include 'admin_produs.php';
+    include 'admin_meniu_s.php';
     echo" <style>
         body {
             background-image: url();
@@ -18,8 +20,10 @@ if ($_SESSION["admin"] == 1)
 }
 
 ?>
-<br>
-<center><h1><i>MAGAZIN SPORTIV</i></h1></center>
 
-<h3>Ne gasiti in municipiul Craiova, strada Unirii, bloc 46, judetul Dolj</h3>
-<center><img src="gif/harta.png" width=600 heght=500></center>
+<br>
+    <br><center><strong><h1><i>FARMA VET</h1></i></strong></center>
+    <h3>Ne gasiti in Craiova, str. Amaradia, bl. F3, jud. Dolj</h3>
+    <center><img src="farmavet_harta.png" width=500></center>
+
+</body>

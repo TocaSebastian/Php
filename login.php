@@ -39,9 +39,10 @@ if (!strcmp($buton1,'Trimite')){
       $newid = session_create_id($nume);
       session_id($newid);
       session_start();
-      $_SESSION["admin"] = 1;
       $_SESSION["user_id"] = $nume;
-      include 'admin_produs.php';
+      $_SESSION["este_logat"] = 1;
+      $_SESSION["admin"] = 1;
+      include 'admin_meniu.php';
     }
     else{
       // daca este user in baza
@@ -57,17 +58,28 @@ if (!strcmp($buton1,'Trimite')){
       $_SESSION["este_logat"] = 1;
 
       include 'user_meniu.php';
-      include "verific_umesaj.php";
+      // Dupa autentificare se verifica daca avem programat vreun vaccin
+      include "verifica_programare.php";
+      echo '<style>
+            body {
+                background-image: url(lacat_deschis.jpg);
+                height: 400px;
+                background-position: center;
+                background-repeat: no-repeat, repeat;
+                background-size: auto;
+                background-color: white;
+                position: relative;
+            }
+            </style>';
     }//if_3
   }//if_2
   else{
     session_start();
     $_SESSION["user_id"] = "";
     $_SESSION["este_logat"] = 0;
-    include 'index.html';
+    include 'index.php';
     echo "<br><center><h1>Nu sunteti inregistrat!</h1></center>";
     echo "<center><h1>Pentru inregistrare alegeti pagina Login -> Inregistrare</h1></center>";
-    include 'index.php';
   }//if_1
 }//if buton1
 

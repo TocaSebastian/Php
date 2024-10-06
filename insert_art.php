@@ -1,9 +1,5 @@
 <?php
-/*
-if $buton == 'Back'{
-    session_start('back');
-}
-*/
+
 include 'connect.php';
 // Prepare the SQL statement
 $stmt = $conn->prepare("INSERT INTO images (cod_art, image_name, image_data, image_type) VALUES ( ?, ?, ?, ?)");
@@ -29,20 +25,20 @@ include 'connect.php';
 
 
 
-$tip_echipament = $_POST["tip_echipament"];
-$denumire_echipament = $_POST['denumire_echipament'];
+$tip_animal = $_POST["tip_animal"];
+$denumire_articol = $_POST['denumire_articol'];
 $utilitate = $_POST['utilitate'];
-$anotimp = $_POST['anotimp'];
 $cantitate = $_POST['cantitate'];
 $brand = $_POST['brand'];
 $pret = $_POST['pret'];
 $descriere = $_POST['descriere'];
 
-//echo "[".$tip_echipament." - ".$denumire_echipament." - ".$utilitate." - ".$anotimp." - ".$cantitate." - ".$brand." - ".$pret."]";
+//echo "[".$tip_animal." - ".$denumire_articol." - ".$utilitate." - ".$cantitate." - ".$brand." - ".$pret."]";
 //echo $descriere;
 
 // Execute the prepared statement
-$sql = "INSERT INTO articol ( tip_echipament , denumire_echipament, utilitate, anotimp,                               cantitate, brand, pret, descriere, cod_art) VALUES ('".$tip_echipament."', '".$denumire_echipament."' , '".$utilitate."' , '".$anotimp."' , ". $cantitate.", '". $brand."' ,". $pret.", '". $descriere."',".$cod_art.")";
+$sql = "INSERT INTO articol ( tip_animal , denumire_articol, utilitate, cantitate, brand, pret, descriere, cod_art) VALUES ('$tip_animal', '$denumire_articol' , '$utilitate' , $cantitate , '$brand' , $pret, '$descriere',$cod_art)";
+
 //echo "<br>".$sql;
 if ($conn->query($sql) === TRUE) {
   echo "<br>Successfully INSERT articol";
@@ -57,6 +53,6 @@ $conn->close();
 //time_sleep_until(time()+3);
 sleep(3);// asteapta 3 secunde apoi deschide pagina noua
 ob_clean(); // curata pagina de browser (cls)
-include "admin_produs.html";
+include "admin_meniu.php";
 
 ?> 

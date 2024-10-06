@@ -3,7 +3,7 @@
 session_start();
 if ($_SESSION["admin"] == 1)
 {
-    include 'admin_produs.php';
+    include 'admin_meniu.php';
     echo" <style>
         body {
             background-image: url();
@@ -46,12 +46,12 @@ if ($result->num_rows > 0)
         echo '<td height="27" width="95">&nbsp;'.$row["data"].'</td>';
         echo '<td height="27" width="95">&nbsp;'.$row["ora"].'</td>';
         echo '<td height="27" width="265">&nbsp;'.$row["de_la"].'</td>';
-        echo '<td height="27" width="429">&nbsp;<a href=afisare_mesaj.php?catre='.$catre;
+        echo '<td height="27" width="429">&nbsp;<a href="afisare_mesaj.php?catre='.$catre;
         echo '&data='.$data;
         echo '&nr_crt='.$row["nr_crt"];
         echo '&de_la='.$de_la;
         echo '&subiect='.$subiect;
-        echo '&mesaj='.$row["text"].'>'.$row["subiect"].'</a></td>';
+        echo '&mesaj='.$mesaj.'">'.$row["subiect"].'</a></td>';
         //echo '</a>';
         echo '</tr>';
     }//while
