@@ -1,0 +1,77 @@
+<html>
+<head>
+
+</head>
+
+<body>
+
+<center><h2>Actualizare articol(Cautare dupa codul articolului)</h2></center>
+
+<form action="actualizare.php" enctype="multipart/form-data" method="POST">
+    <label for="cod_art">Cod articol: </label>
+      <input type="text" name="cod_art" value="">
+    <br>
+    <label for="tip_echipament">Tip_echipament:</label>
+      <input type="radio" name="tip_echipament" id="fitness" value="fitness">
+      <label for="fitness">Fitness</label>
+      <input type="radio" name="tip_echipament" id="echipa" value="echipa">
+      <label for="echipa">De echipa</label>
+      <input type="radio" name="tip_echipament" id="individual" value="individual">
+      <label for="individual">Individual</label>
+      <input type="radio" name="tip_echipament" id="contact" value="contact">
+      <label for="contact">De contact</label>
+    <br>
+
+  <label for="denumire_echipament">Denumire echipament: </label>
+  <input type="text" name="denumire_echipament" value="">
+  <br>
+
+  <label for="utilitate">Tip de sport: </label>
+    <select name="utilitate" id="utilitate">
+        <option>Alege o optiune</option>
+        <option value="baschet">Baschet</option>
+        <option value="fotbal">Fotbal</option>
+        <option value="handbal">Handbal</option>
+        <option value="tenis de camp">Tenis de camp</option>
+        <option value="tenis de masa">Tenis de masa</option>
+        <option value="contact">Sporturi de contact</option>
+        <option value="drumetie">Drumetie</option>
+        <option value="patinaj">Patinaj</option>
+        <option value="ski">Ski</option>
+        <option value="fitness">Fitness</option>
+    </select>
+  <br>
+
+  <label for="anotimp">Anotimp:</label>
+    <input type="radio" name="anotimp" id="primavara" value="primavara">
+    <label for="primavara">Primavara</label>
+    <input type="radio" name="anotimp" id="vara" value="vara">
+    <label for="vara">Vara</label>
+    <input type="radio" name="anotimp" id="toamna" value="toamna">
+    <label for="toamna">Toamna</label>
+    <input type="radio" name="anotimp" id="iarna" value="iarna">
+    <label for="iarna">Iarna</label>
+    <input type="radio" name="anotimp" id="sala" value="sala">
+    <label for="sala">Sala</label>
+  <br>
+
+  <label for="cantitate">Cantitate:</label>
+    <input type="text" name="cantitate" value="">
+  <br>
+  <label for="brand">Brand:</label>
+    <input type="text" name="brand" value="">
+  <br>
+  <label for="pret">Pret:</label>
+    <input type="text" name="pret" value="">
+  <br>
+  <label for="descriere">Descriere:</label><br>
+    <textarea name="descriere" id="descriere" cols="60" rows="6"></textarea>
+  <br>
+
+  <input type="submit" name="submit" value="Actualizare ARTICOL" />
+  <br>
+  <button onclick="history.back()">Back</button>
+</form>
+
+</body>
+</html>

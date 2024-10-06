@@ -1,0 +1,33 @@
+<html>
+<title>
+    Magazin Sportiv
+</title>
+<body>
+<center><h2>Date expediere</h2></center>
+<form action="expediere.php" method="post">
+<br>Nume si prenume: <input type="text" name="nume" value="" size="50" maxLength="15">
+<br><br>Judet: <input type="text" name="judet" value="" size="30" maxLength="15">
+<br><br>Localitate: <input type="text" name="localitate" value="" size="30" maxLength="15">
+<br><br>Strada: <input type="text" name="strada" value="" size="30" maxLength="15">
+<br><br>Numarul: <input type="text" name="nr_strada" value="0" size="10" maxLength="15">
+<br><br>Telefon: <input type="text" name="telefon" value="0" size="11" maxLenght="11">
+<br><br><label for="detalii_exped">Alete detalii privind expedierea:</label>
+    <textarea name="detalii_exped" id="detalii_exped" cols="60" rows="6"></textarea>
+<br><br>
+<table border="0" width="400" height="49">
+	<tr>
+        <td height="49" width="187"></td>
+		<td height="49" width="187">
+            <input type="reset" name="Reseteaza" value="Reseteaza">
+		</td>
+		<td height="49" width="200">
+            <input type="button" value="Back" onClick="history.go(-1)">
+		</td>
+		<td height="49" width="188">
+            <input type="submit" name="Trimite" value="Trimite">
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

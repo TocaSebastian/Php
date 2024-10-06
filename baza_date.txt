@@ -1,0 +1,11 @@
+Baza de date a magazinului cuprinde:
+
+Tabele:  articol (nr_crt. tip_echipament, denumire_echipament, utilitate, anotimp, cantitate, brand, pret)
+                - nr_crt: numar curent INT(6)
+		- tip_echipament: tipul echipamentului (ex: racheta, adidas, sort)  TEXT(30)
+		- denumire_echipament: denumirea echipamentului( ex: racheta tenis, minge tenis)
+		- utilitate: tipul de sport pentru care este utilizat echipamentul (ex: tenis, box, etc)
+		- anotimpul: pentru care se folosesdte echipamentul
+		- cantitate: numarul de bucati
+		- brand: firma producatoare
+		- pret: pretul per bucata al achipamentului
